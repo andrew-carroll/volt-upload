@@ -1,24 +1,28 @@
 # Volt::Upload
 
-TODO: Write a gem description
+Drop-in file upload support for Volt applications.
 
 ## Installation
 
+    git clone git@github.com:andrew-carroll/volt-upload.git
+
 Add this line to your application's Gemfile:
 
-    gem 'volt-upload'
+    gem 'volt-upload', path: 'volt-upload'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Add this line to your component's `dependencies.rb` file:
 
-    $ gem install volt-upload
+    component 'upload'
 
 ## Usage
 
-TODO: Write usage instructions here
+    <:upload />
+
+Uploads are stored on `store._uploads` by default. Access the data url of the most recent upload with either `page._last_upload` or `store._uploads.last._data`.
 
 ## Contributing
 
