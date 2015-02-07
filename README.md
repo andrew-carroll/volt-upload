@@ -24,6 +24,12 @@ Add this line to your component's `dependencies.rb` file:
 
 Uploads are stored on `store._uploads` by default. Access the data url of the most recent upload with either `page._last_upload` or `store._uploads.last._data`.
 
+## TODO
+
+* Option to change default store model
+* Option to wait for submit button click before saving
+* Onchange event hook
+
 ## Contributing
 
 1. Fork it ( http://github.com/[my-github-username]/volt-upload/fork )
