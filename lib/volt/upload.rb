@@ -1,6 +1,5 @@
-require "volt/upload/version"
 
-class Volt
+module Volt
   class Upload
     # Your code goes here...
   end

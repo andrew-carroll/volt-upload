@@ -20,7 +20,7 @@ Add this line to your component's `dependencies.rb` file:
 
 ## Usage
 
-    <:upload />
+    <:upload:main />
 
 Uploads are stored on `store._uploads` by default. Access the data url of the most recent upload with either `page._last_upload` or `store._uploads.last._data`.
 
