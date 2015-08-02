@@ -18,16 +18,32 @@ module Upload
     end
 
     def upload
-      `console.log( #{@id} )`
-      `var reader = new FileReader();
+      %x{
+        var reader = new FileReader();
 
-      reader.onload = function(e) {
-        var dataURL = reader.result;
-        $( #{@id} ).data('data-url', dataURL)
-        #{ save_upload }
+        reader.onload = function(e) {
+          var dataURL = reader.result;
+          $( #{@id} ).data('data-url', dataURL)
+          #{ save_upload }
+        }
+
+
+        reader.onprogress = function (event) {
+         if (event.lengthComputable) {
+             var percentage = Math.round (event.loaded / event.total * 100);
+             $(".prog_#{id}").css({width: percentage+'%'})
+          }
+        }
+       
+        reader.onloadend = function (event) {
+         if (event.lengthComputable) {
+             $(".prog_#{id}").css({width: '100%'})
+          }
+        }
+        
+
+        reader.readAsDataURL($( #{@id} )[0].files[0])
       }
-
-      reader.readAsDataURL($( #{@id} )[0].files[0])`
     end
 
     def save_upload
